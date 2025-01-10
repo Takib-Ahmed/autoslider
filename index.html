@@ -5,27 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .Sliderdiv{
-            display: flex;
-            overflow: hidden;
-            img{
-                max-width: inherit;
-            }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+        
+
+        .Sliderdiv {
+position: relative;            
+
+            width: 100%;
+            
+          .prev{
+            position: absolute ;
+            left:0;
+            top:50%;
+            background :transparent ;
+            border:none;
+            outline:none;
+          }
+         .next{
+           position :absolute ;
+           right: 0;
+           top:50%;
+           background :transparent ;
+            border:none;
+            outline:none;
+         }
+        }
+
+        .Sliderdiv img {
+            width: 100%;
+            height 100%;
+            
+        }
+       .Sliderdiv img:not(img:first-child){
+    display: none;
+       }
     </style>
 </head>
 
 <body>
-    <div class="Sliderdiv ">
-        <img src="/image1.png" alt="">
-        <img src="/image2.png" alt="">
-        <img src="/image3.png" alt="">
+    <div class="Sliderdiv">
+      <button class="prev"><img src="/left-chevron.png" alt="/left-chevron.png"></button>
+        <img src="image1.png" alt="">
+        <img src="image2.png" alt="">
+        <img src="image3.png" alt="">
+        <button class="next"><img src="/right-chevron.png" alt="/left-chevron.png"></button>
     </div>
-
     <script>
-
-
-
-    </script>
+      let Slider = document.querySelector('.Sliderdiv')
+    let next = document.querySelector('.next')
+    
+    next.onclick = ()=>{
+      
+      Slider.append(Slider.querySelector('img:first-child'))
+      
+    }
+   </script>
 </body>
 </html>
